@@ -307,7 +307,7 @@ class _RegisterState extends State<Addcardpage> {
                     style: ElevatedButton.styleFrom(
                         primary: Color(primary_color),
                         elevation: 2.5,
-                                    shadowColor: Color(fusica_text).withOpacity(0.2),
+                        shadowColor: Color(fusica_text).withOpacity(0.2),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(35),
                         )),
@@ -357,20 +357,20 @@ class _RegisterState extends State<Addcardpage> {
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.BOTTOM,
           timeInSecForIosWeb: 1,
-          backgroundColor: Colors.black87,
-          textColor: Colors.white,
+          backgroundColor: Colors.white,
+              textColor: Color(primary_text),
           fontSize: sub_title);
     } else {
       form.save();
       // Encrypt and send send payment details to payment gateway
 
       Fluttertoast.showToast(
-          msg: 'Payment card is valid',
+          msg: 'Woohoo! New card successfully added.',
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.BOTTOM,
           timeInSecForIosWeb: 1,
-          backgroundColor: Colors.black87,
-          textColor: Colors.white,
+          backgroundColor: Colors.white,
+              textColor: Color(primary_text),
           fontSize: sub_title);
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => Confirmpayment()));

@@ -11,7 +11,7 @@ import 'package:http/http.dart' as http;
 
 class MerchantSearchProvider with ChangeNotifier {
   List<MerchantSearch> MerchantSearchData = [];
-  List<GetSearchCategory> getCatMerchantDetails = [];
+
   String status = "";
 
   // Future loginprovide(context, number) async {
@@ -29,24 +29,13 @@ class MerchantSearchProvider with ChangeNotifier {
       case 200:
         var results = json.decode(response.body);
         MerchantSearchData = [];
-        getCatMerchantDetails = [];
         if (results['status'] == "success") {
           // print(results['categories']);
           status = results["status"];
 
           results["merchant_search"].forEach((item) {
-            List<GetSearchCategory> temp = [];
-            if (item["get_category"] != null) {
-              item["get_category"].forEach((item3) {
-                temp.add(GetSearchCategory(
-                  id: item3["id"],
-                  categoryDetailsname: item3["get_category_details"]["name"],
-                ));
-              });
-            }
             MerchantSearchData.add(
               MerchantSearch(
-                getCategory: temp,
                 id: item['id'],
                 apikey: item["api_key"],
                 banner: item["banner"],

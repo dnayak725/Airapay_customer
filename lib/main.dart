@@ -106,7 +106,7 @@ class MyApp extends StatelessWidget {
             create: (_) => SpendingLimitProvider()),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Airapay',
         theme: ThemeData(
           fontFamily: "Baloo2",
 
