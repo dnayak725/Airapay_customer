@@ -17,7 +17,6 @@ class CustomerDetailsProvider with ChangeNotifier {
   List<GetCat> getCat = [];
   List<GetCashback> getCashback = [];
   CustomerDetails userDetails = CustomerDetails(
-    notificationEnable: 0,
       customerName: "",
       phoneNumber: "",
       profilepic: "",
@@ -47,7 +46,6 @@ class CustomerDetailsProvider with ChangeNotifier {
           userDetails.profilepic =
               results["user_details"]["get_customer_details"]["profile_photo"];
           userDetails.email = results["user_details"]["email"];
-            userDetails.notificationEnable = results["user_details"]["is_notification_enable"];
           userDetails.customerName =
               results["user_details"]["get_customer_details"]["customer_name"];
           userDetails.gender =
@@ -103,7 +101,6 @@ class CustomerDetailsProvider with ChangeNotifier {
 
   reset() {
     userDetails = CustomerDetails(
-      notificationEnable: 0,
         customerName: "",
         phoneNumber: "",
         profilepic: "",
