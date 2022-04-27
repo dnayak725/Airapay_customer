@@ -8,7 +8,6 @@ class CustomerDetails {
     required this.gender,
     required this.getIntrestCategory,
     required this.getFavMerchant,
-    required this.notificationEnable,
   });
   int id;
   String email;
@@ -19,7 +18,6 @@ class CustomerDetails {
 
   List<GetIntrestCategory> getIntrestCategory;
   List<GetFavMerchant> getFavMerchant;
-  int notificationEnable;
 }
 
 class GetIntrestCategory {

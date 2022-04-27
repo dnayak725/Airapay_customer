@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:aira_pay/Shop/Providers/PromoDealsProvider.dart';
-import 'package:aira_pay/Shop/Screens/PromoDealsView.dart';
 import 'package:aira_pay/Shop/Screens/merchant_screen.dart';
 import 'package:aira_pay/config.dart';
 import 'package:flutter/material.dart';
@@ -51,38 +50,28 @@ class _PromoDealsState extends State<PromoDeals> {
                 ],
               ),
               // ignore: prefer_const_constructors
-              GestureDetector(
-                onTap: () {
-                    Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => PromodealsView(
-                                    )),
-                          );
-                },
-                child: Row(
-                  // ignore: prefer_const_literals_to_create_immutables
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 3),
-                      child: Text(
-                        "View All",
-                        // ignore: prefer_const_constructors
-                        style: TextStyle(
-                          fontSize: sub_title,
-                          fontWeight: FontWeight.w700,
-                          color: Color(primary_color),
-                        ),
+              Row(
+                // ignore: prefer_const_literals_to_create_immutables
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 3),
+                    child: Text(
+                      "View All",
+                      // ignore: prefer_const_constructors
+                      style: TextStyle(
+                        fontSize: sub_title,
+                        fontWeight: FontWeight.w700,
+                        color: Color(primary_color),
                       ),
                     ),
-                    HeroIcon(
-                      HeroIcons.chevronRight,
-                      solid: true,
-                      color: Color(primary_color),
-                      size: heading_title,
-                    )
-                  ],
-                ),
+                  ),
+                  HeroIcon(
+                    HeroIcons.chevronRight,
+                    solid: true,
+                    color: Color(primary_color),
+                    size: heading_title,
+                  )
+                ],
               )
             ],
           ),

@@ -6,8 +6,6 @@ import 'package:http/http.dart' as http;
 // updatePassword
 class UpdateProfileApiService {
   Future<UpdateProfileModel> updateprofile(Map<String, dynamic> param) async {
-    print("param");
-    print(param);
     String url = "https://airapay-ext.quocent.com/mobile/api/v1/profile-update";
     var request = new http.MultipartRequest("POST", Uri.parse(url))
       ..fields['token'] = param["token"]
@@ -22,8 +20,8 @@ class UpdateProfileApiService {
     var streamedResponse = await request.send();
     var response = await http.Response.fromStream(streamedResponse);
     final data = jsonDecode(response.body);
- print("response");
-    print(response.body);
+
+    print(response.statusCode);
     if (response.statusCode == 200) {
       return UpdateProfileModel.fromJson(data);
     } else {

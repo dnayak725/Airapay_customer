@@ -113,6 +113,7 @@ class _ReferfriendState extends State<Referfriend> {
                     style: ElevatedButton.styleFrom(
                         primary: Color(primary_color),
                         elevation: 2,
+                        shadowColor: Color(fusica_text).withOpacity(0.2),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(35),
                         )),

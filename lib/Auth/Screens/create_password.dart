@@ -280,12 +280,12 @@ class _RegisterState extends State<Createpassword> {
       (value) async {
         if (value.status == "success") {
           Fluttertoast.showToast(
-              msg: value.message,
+              msg: "Woohoo! Password successfully changed.",
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
               timeInSecForIosWeb: 1,
-              backgroundColor: Colors.black87,
-              textColor: Colors.white,
+              backgroundColor: Colors.white,
+              textColor: Color(primary_text),
               fontSize: sub_title);
           print(value.status);
           Navigator.push(
@@ -296,8 +296,8 @@ class _RegisterState extends State<Createpassword> {
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
               timeInSecForIosWeb: 1,
-              backgroundColor: Colors.black87,
-              textColor: Colors.white,
+              backgroundColor: Colors.white,
+              textColor: Color(primary_text),
               fontSize: sub_title);
           print(value.message);
         }
