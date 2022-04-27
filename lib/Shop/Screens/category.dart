@@ -72,6 +72,7 @@ class _CategoryState extends State<Category> {
                                 // ignore: prefer_const_constructors
                                 child: HeroIcon(
                                   HeroIcons.search,
+                                  solid: true,
                                   color: Color(label_grey),
                                   size: icon_size,
                                 ),
@@ -107,6 +108,7 @@ class _CategoryState extends State<Category> {
                         ),
                         HeroIcon(
                           HeroIcons.locationMarker,
+                          solid: true,
                           color: Color(primary_color),
                           size: icon_size,
                         ),

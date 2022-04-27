@@ -91,7 +91,7 @@ class _TabsState extends State<Tabs> {
       ),
       activeIcon: const HeroIcon(
         HeroIcons.user,
-        solid: false,
+        solid: true,
         size: 26,
         color: Color(primary_color),
       ),
@@ -127,7 +127,15 @@ class _TabsState extends State<Tabs> {
           }
         },
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.grey[600],
+        selectedItemColor: Color(primary_color),
+        unselectedLabelStyle: TextStyle(
+          fontSize: small_text,
+          fontWeight: FontWeight.w600
+        ),
+        selectedLabelStyle: TextStyle(
+          fontSize: small_text,
+          fontWeight: FontWeight.w700
+        ),
         items: navItems
             .map((nav) => BottomNavigationBarItem(
                   icon: nav.icon,

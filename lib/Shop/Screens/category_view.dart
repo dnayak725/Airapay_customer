@@ -92,426 +92,425 @@ class _CategoryViewState extends State<CategoryView> {
           Consumer<GetCatByIdMerchantProvider>(
               builder: (context, catMerchantData, child) {
             return catMerchantData.getCatMerchants.length != 0
-                ? Expanded(
-                  child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: Container(
-                          margin: const EdgeInsets.symmetric(
-                            vertical: 5.0,
-                          ),
-                          child: ListView.builder(
-                             
-                              itemCount: catMerchantData.getCatMerchants.length,
-                              itemBuilder: (ctnx, i) {
-                                return Padding(
-                                  padding: const EdgeInsets.only(top: 10),
-                                  child: Card(
-                                    elevation: 2.5,
-                                      shadowColor: Colors.black.withOpacity(0.3),
-                                    color: Colors.white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(6),
-                                    ),
-                                    child: Column(
-                                      children: [
-                                        GestureDetector(
-                                          onTap: () {
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) => Merchant(
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Container(
+                        margin: const EdgeInsets.symmetric(
+                          vertical: 5.0,
+                        ),
+                        child: ListView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: catMerchantData.getCatMerchants.length,
+                            itemBuilder: (ctnx, i) {
+                              return Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Card(
+                                  elevation: 2.5,
+                                    shadowColor: Colors.black.withOpacity(0.3),
+                                  color: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(6),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => Merchant(
+                                                    catMerchantData
+                                                        .getCatMerchants[i]
+                                                        .id)),
+                                          );
+                                        },
+                                        child: Stack(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.only(
+                                                  topLeft: Radius.circular(6),
+                                                  topRight: Radius.circular(6)),
+                                              child: Image.network(
+                                                  catMerchantData
+                                                      .getCatMerchants[i].banner
+                                                      .toString(),
+                                                  width: double.infinity,
+                                                  height: 145,
+                                                  fit: BoxFit.cover),
+                                            ),
+                                            Positioned(
+                                              top: 15,
+                                              left: 20,
+                                              child: Container(
+                                                width: 48,
+                                                height: 48,
+                                                // ignore: prefer_const_constructors
+                                                child: Align(
+                                                  alignment: Alignment.topRight,
+                                                  child: CircleAvatar(
+                                                    radius: 30.0,
+                                                    backgroundImage:
+                                                        NetworkImage(
                                                       catMerchantData
                                                           .getCatMerchants[i]
-                                                          .id)),
-                                            );
-                                          },
-                                          child: Stack(
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius: BorderRadius.only(
-                                                    topLeft: Radius.circular(6),
-                                                    topRight: Radius.circular(6)),
-                                                child: Image.network(
-                                                    catMerchantData
-                                                        .getCatMerchants[i].banner
-                                                        .toString(),
-                                                    width: double.infinity,
-                                                    height: 145,
-                                                    fit: BoxFit.cover),
-                                              ),
-                                              Positioned(
-                                                top: 15,
-                                                left: 20,
-                                                child: Container(
-                                                  width: 48,
-                                                  height: 48,
-                                                  // ignore: prefer_const_constructors
-                                                  child: Align(
-                                                    alignment: Alignment.topRight,
-                                                    child: CircleAvatar(
-                                                      radius: 30.0,
-                                                      backgroundImage:
-                                                          NetworkImage(
-                                                        catMerchantData
-                                                            .getCatMerchants[i]
-                                                            .logo
-                                                            .toString(),
-                                                      ),
-                                                      backgroundColor:
-                                                          Color(white_color),
+                                                          .logo
+                                                          .toString(),
                                                     ),
+                                                    backgroundColor:
+                                                        Color(white_color),
                                                   ),
                                                 ),
                                               ),
-                                              Positioned(
-                                                top: 10,
-                                                right: 10,
-                                                child: Row(
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.all(
-                                                              2.0),
-                                                      child: Container(
-                                                        decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(4),
-                                                          color: Colors.black
-                                                              .withOpacity(0.5),
-                                                        ),
-                                                        alignment:
-                                                            Alignment.centerRight,
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  horizontal: 5,
-                                                                  vertical: 4),
-                                                          child: Row(
-                                                            // ignore: prefer_const_literals_to_create_immutables
-                                                            children: [
-                                                              HeroIcon(
-                                                                HeroIcons.tag,
-                                                                solid: true,
-                                                                size:
-                                                                    extra_small_text,
-                                                                color: Color(
-                                                                    white_color),
+                                            ),
+                                            Positioned(
+                                              top: 10,
+                                              right: 10,
+                                              child: Row(
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            2.0),
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(4),
+                                                        color: Colors.black
+                                                            .withOpacity(0.5),
+                                                      ),
+                                                      alignment:
+                                                          Alignment.centerRight,
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .symmetric(
+                                                                horizontal: 5,
+                                                                vertical: 4),
+                                                        child: Row(
+                                                          // ignore: prefer_const_literals_to_create_immutables
+                                                          children: [
+                                                            HeroIcon(
+                                                              HeroIcons.tag,
+                                                              solid: true,
+                                                              size:
+                                                                  extra_small_text,
+                                                              color: Color(
+                                                                  white_color),
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                          .only(
+                                                                      left: 3),
+                                                              child: Text(
+                                                                'Deals',
+                                                                style: TextStyle(
+                                                                    color: Color(
+                                                                        white_color),
+                                                                    fontSize:
+                                                                        extra_small_text,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600),
                                                               ),
-                                                              Padding(
-                                                                padding:
-                                                                    const EdgeInsets
-                                                                            .only(
-                                                                        left: 3),
-                                                                child: Text(
-                                                                  'Deals',
-                                                                  style: TextStyle(
-                                                                      color: Color(
-                                                                          white_color),
-                                                                      fontSize:
-                                                                          extra_small_text,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
+                                                            ),
+                                                          ],
                                                         ),
                                                       ),
                                                     ),
-                                                    catMerchantData
-                                                                .getCatMerchants[
-                                                                    i]
-                                                                .instore !=
-                                                            "0"
-                                                        ? Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                    .all(2),
-                                                            child: Container(
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            4),
-                                                                color: Colors
-                                                                    .black
-                                                                    .withOpacity(
-                                                                        0.5),
-                                                              ),
-                                                              alignment: Alignment
-                                                                  .centerRight,
-                                                              child: Padding(
-                                                                padding: const EdgeInsets
-                                                                        .symmetric(
-                                                                    horizontal: 3,
-                                                                    vertical: 2),
-                                                                child: Row(
-                                                                  // ignore: prefer_const_literals_to_create_immutables
-                                                                  children: [
-                                                                    HeroIcon(
-                                                                      HeroIcons
-                                                                          .home,
-                                                                      solid: true,
-                                                                      size:
-                                                                          extra_small_text,
-                                                                      color: Color(
-                                                                          white_color),
+                                                  ),
+                                                  catMerchantData
+                                                              .getCatMerchants[
+                                                                  i]
+                                                              .instore !=
+                                                          "0"
+                                                      ? Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(2),
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          4),
+                                                              color: Colors
+                                                                  .black
+                                                                  .withOpacity(
+                                                                      0.5),
+                                                            ),
+                                                            alignment: Alignment
+                                                                .centerRight,
+                                                            child: Padding(
+                                                              padding: const EdgeInsets
+                                                                      .symmetric(
+                                                                  horizontal: 3,
+                                                                  vertical: 2),
+                                                              child: Row(
+                                                                // ignore: prefer_const_literals_to_create_immutables
+                                                                children: [
+                                                                  HeroIcon(
+                                                                    HeroIcons
+                                                                        .home,
+                                                                    solid: true,
+                                                                    size:
+                                                                        extra_small_text,
+                                                                    color: Color(
+                                                                        white_color),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: const EdgeInsets
+                                                                            .only(
+                                                                        left:
+                                                                            2),
+                                                                    child: Text(
+                                                                      'In-store',
+                                                                      style: TextStyle(
+                                                                          color: Color(
+                                                                              white_color),
+                                                                          fontSize:
+                                                                              extra_small_text,
+                                                                          fontWeight:
+                                                                              FontWeight.w600),
                                                                     ),
-                                                                    Padding(
-                                                                      padding: const EdgeInsets
-                                                                              .only(
-                                                                          left:
-                                                                              2),
-                                                                      child: Text(
-                                                                        'In-store',
-                                                                        style: TextStyle(
-                                                                            color: Color(
-                                                                                white_color),
-                                                                            fontSize:
-                                                                                extra_small_text,
-                                                                            fontWeight:
-                                                                                FontWeight.w600),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
+                                                                  ),
+                                                                ],
                                                               ),
                                                             ),
-                                                          )
-                                                        : Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                    .all(2),
-                                                            child: Container(
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            4),
-                                                                color: Colors
-                                                                    .black
-                                                                    .withOpacity(
-                                                                        0.5),
-                                                              ),
-                                                              alignment: Alignment
-                                                                  .centerRight,
-                                                              child: Padding(
-                                                                padding: const EdgeInsets
-                                                                        .symmetric(
-                                                                    horizontal: 3,
-                                                                    vertical: 2),
-                                                                child: Row(
-                                                                  // ignore: prefer_const_literals_to_create_immutables
-                                                                  children: [
-                                                                    HeroIcon(
-                                                                      HeroIcons
-                                                                          .home,
-                                                                      solid: true,
-                                                                      size:
-                                                                          extra_small_text,
-                                                                      color: Color(
-                                                                          white_color),
+                                                          ),
+                                                        )
+                                                      : Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(2),
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          4),
+                                                              color: Colors
+                                                                  .black
+                                                                  .withOpacity(
+                                                                      0.5),
+                                                            ),
+                                                            alignment: Alignment
+                                                                .centerRight,
+                                                            child: Padding(
+                                                              padding: const EdgeInsets
+                                                                      .symmetric(
+                                                                  horizontal: 3,
+                                                                  vertical: 2),
+                                                              child: Row(
+                                                                // ignore: prefer_const_literals_to_create_immutables
+                                                                children: [
+                                                                  HeroIcon(
+                                                                    HeroIcons
+                                                                        .home,
+                                                                    solid: true,
+                                                                    size:
+                                                                        extra_small_text,
+                                                                    color: Color(
+                                                                        white_color),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: const EdgeInsets
+                                                                            .only(
+                                                                        left:
+                                                                            2),
+                                                                    child: Text(
+                                                                      'Online',
+                                                                      style: TextStyle(
+                                                                          color: Color(
+                                                                              white_color),
+                                                                          fontSize:
+                                                                              extra_small_text,
+                                                                          fontWeight:
+                                                                              FontWeight.w600),
                                                                     ),
-                                                                    Padding(
-                                                                      padding: const EdgeInsets
-                                                                              .only(
-                                                                          left:
-                                                                              2),
-                                                                      child: Text(
-                                                                        'Online',
-                                                                        style: TextStyle(
-                                                                            color: Color(
-                                                                                white_color),
-                                                                            fontSize:
-                                                                                extra_small_text,
-                                                                            fontWeight:
-                                                                                FontWeight.w600),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
+                                                                  ),
+                                                                ],
                                                               ),
                                                             ),
-                                                          )
-                                                  ],
-                                                ),
+                                                          ),
+                                                        )
+                                                ],
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                              top: 10, left: 20, bottom: 15),
-                                          child: Column(
-                                            // ignore: prefer_const_literals_to_create_immutables
-                                            children: [
-                                              Padding(
-                                                padding: const EdgeInsets.all(3),
-                                                child: Align(
-                                                  alignment: Alignment.topLeft,
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    // ignore: prefer_const_literals_to_create_immutables
-                                                    children: [
-                                                      Text(
-                                                        catMerchantData
-                                                            .getCatMerchants[i]
-                                                            .name,
-                                                        style: TextStyle(
-                                                            color: Color(
-                                                                regular_text),
-                                                            fontWeight:
-                                                                FontWeight.w700,
-                                                            fontSize:
-                                                                button_text),
-                                                      ),
-                                                      GestureDetector(
-                                                        onTap: () async {
-                                                          setState(() {
-                                                            if (selectedReportList
-                                                                .contains(catMerchantData
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 10, left: 20, bottom: 15),
+                                        child: Column(
+                                          // ignore: prefer_const_literals_to_create_immutables
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.all(3),
+                                              child: Align(
+                                                alignment: Alignment.topLeft,
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  // ignore: prefer_const_literals_to_create_immutables
+                                                  children: [
+                                                    Text(
+                                                      catMerchantData
+                                                          .getCatMerchants[i]
+                                                          .name,
+                                                      style: TextStyle(
+                                                          color: Color(
+                                                              regular_text),
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          fontSize:
+                                                              button_text),
+                                                    ),
+                                                    GestureDetector(
+                                                      onTap: () async {
+                                                        setState(() {
+                                                          if (selectedReportList
+                                                              .contains(catMerchantData
+                                                                  .getCatMerchants[
+                                                                      i]
+                                                                  .id
+                                                                  .toString())) {
+                                                            selectedReportList.remove(
+                                                                catMerchantData
                                                                     .getCatMerchants[
                                                                         i]
                                                                     .id
-                                                                    .toString())) {
-                                                              selectedReportList.remove(
+                                                                    .toString());
+                                                            var paramdata = {
+                                                              "token": Token,
+                                                              "user_id": userId,
+                                                              "merchant_id":
                                                                   catMerchantData
                                                                       .getCatMerchants[
                                                                           i]
                                                                       .id
-                                                                      .toString());
-                                                              var paramdata = {
-                                                                "token": Token,
-                                                                "user_id": userId,
-                                                                "merchant_id":
-                                                                    catMerchantData
-                                                                        .getCatMerchants[
-                                                                            i]
-                                                                        .id
-                                                                        .toString(),
-                                                                "status": "false",
-                                                              };
-                                                              Provider.of<FavoriteMerchantProvider>(
-                                                                      context,
-                                                                      listen:
-                                                                          false)
-                                                                  .FavouriteMerchantfetch(
-                                                                      paramdata);
-                                                            } else {
-                                                              selectedReportList.add(
+                                                                      .toString(),
+                                                              "status": "false",
+                                                            };
+                                                            Provider.of<FavoriteMerchantProvider>(
+                                                                    context,
+                                                                    listen:
+                                                                        false)
+                                                                .FavouriteMerchantfetch(
+                                                                    paramdata);
+                                                          } else {
+                                                            selectedReportList.add(
+                                                                catMerchantData
+                                                                    .getCatMerchants[
+                                                                        i]
+                                                                    .id
+                                                                    .toString());
+                                                            var paramdata = {
+                                                              "token": Token,
+                                                              "user_id": userId,
+                                                              "merchant_id":
                                                                   catMerchantData
                                                                       .getCatMerchants[
                                                                           i]
                                                                       .id
-                                                                      .toString());
-                                                              var paramdata = {
-                                                                "token": Token,
-                                                                "user_id": userId,
-                                                                "merchant_id":
-                                                                    catMerchantData
-                                                                        .getCatMerchants[
-                                                                            i]
-                                                                        .id
-                                                                        .toString(),
-                                                                "status": "true",
-                                                              };
-                                                              Provider.of<FavoriteMerchantProvider>(
-                                                                      context,
-                                                                      listen:
-                                                                          false)
-                                                                  .FavouriteMerchantfetch(
-                                                                      paramdata);
-                                                            }
-                                                          });
-                
-                                                          //
-                                                        },
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .only(
-                                                                  right: 10),
-                                                          child:  selectedReportList.contains(
-                                                                    catMerchantData
-                                                                        .getCatMerchants[
-                                                                            i]
-                                                                        .id
-                                                                        .toString())
-                                                               ? HeroIcon(
-                                                            HeroIcons.heart,
-                                                            solid: true,
-                                                            color:
-                                                                 Color(
-                                                                    primary_color),
-                                                            size: small_icon_size,
-                                                          ):HeroIcon(
-                                                            HeroIcons.heart,
-                                                            solid: false,
-                                                            color:
-                                                                 Color(
-                                                                    icon_gery),
-                                                            size: small_icon_size,),
-                                                        ),
-                                                      )
-                                                    ],
-                                                  ),
+                                                                      .toString(),
+                                                              "status": "true",
+                                                            };
+                                                            Provider.of<FavoriteMerchantProvider>(
+                                                                    context,
+                                                                    listen:
+                                                                        false)
+                                                                .FavouriteMerchantfetch(
+                                                                    paramdata);
+                                                          }
+                                                        });
+
+                                                        //
+                                                      },
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .only(
+                                                                right: 10),
+                                                        child:  selectedReportList.contains(
+                                                                  catMerchantData
+                                                                      .getCatMerchants[
+                                                                          i]
+                                                                      .id
+                                                                      .toString())
+                                                             ? HeroIcon(
+                                                          HeroIcons.heart,
+                                                          solid: true,
+                                                          color:
+                                                               Color(
+                                                                  primary_color),
+                                                          size: small_icon_size,
+                                                        ):HeroIcon(
+                                                          HeroIcons.heart,
+                                                          solid: false,
+                                                          color:
+                                                               Color(
+                                                                  icon_gery),
+                                                          size: small_icon_size,),
+                                                      ),
+                                                    )
+                                                  ],
                                                 ),
                                               ),
-                                              Row(
-                                                  // ignore: prefer_const_literals_to_create_immutables
-                                                  children: List.generate(
-                                                      catMerchantData.getCatMerchants[i].getCategory.length
-                                                         ,
-                                                      (index) => Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                    .all(3),
-                                                            child: Container(
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              3),
-                                                                  color: Color(
-                                                                      grey_bg),
+                                            ),
+                                            Row(
+                                                // ignore: prefer_const_literals_to_create_immutables
+                                                children: List.generate(
+                                                    catMerchantData.getCatMerchants[i].getCategory.length
+                                                       ,
+                                                    (index) => Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(3),
+                                                          child: Container(
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            3),
+                                                                color: Color(
+                                                                    grey_bg),
+                                                              ),
+                                                              child: Padding(
+                                                                padding: const EdgeInsets
+                                                                        .symmetric(
+                                                                    horizontal:
+                                                                        10,
+                                                                    vertical:
+                                                                        2),
+                                                                child: Text(
+                                                                  catMerchantData.getCatMerchants[i].getCategory[
+                                                                          index]
+                                                                      .categoryDetailsName,
+                                                                  style: TextStyle(
+                                                                      color: Color(
+                                                                          primary_color),
+                                                                      fontSize:
+                                                                          tag_text),
                                                                 ),
-                                                                child: Padding(
-                                                                  padding: const EdgeInsets
-                                                                          .symmetric(
-                                                                      horizontal:
-                                                                          10,
-                                                                      vertical:
-                                                                          2),
-                                                                  child: Text(
-                                                                    catMerchantData.getCatMerchants[i].getCategory[
-                                                                            index]
-                                                                        .categoryDetailsName,
-                                                                    style: TextStyle(
-                                                                        color: Color(
-                                                                            primary_color),
-                                                                        fontSize:
-                                                                            tag_text),
-                                                                  ),
-                                                                )),
-                                                          )))
-                                            ],
-                                          ),
-                                        )
-                                      ],
-                                    ),
+                                                              )),
+                                                        )))
+                                          ],
+                                        ),
+                                      )
+                                    ],
                                   ),
-                                );
-                              })),
-                    ),
-                )
+                                ),
+                              );
+                            })),
+                  )
                 : Center(child: Container(child: Text("No data found")));
           }),
         ],

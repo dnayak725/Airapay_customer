@@ -329,6 +329,7 @@ class _RegisterState extends State<Profileupdate> {
                   style: ElevatedButton.styleFrom(
                       primary: Color(primary_color),
                       elevation: 2,
+                      shadowColor: Color(fusica_text).withOpacity(0.2),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(35),
                       )),
@@ -348,15 +349,14 @@ class _RegisterState extends State<Profileupdate> {
     );
   }
 
-  updateProfile() async {
+  updateProfile() {
     print("hii");
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    var pic = sharedPreferences.getString("profilephoto");
+    print(Profileimage);
     final service = UpdateProfileApiService();
 
-  await service.updateprofile(
+    service.updateprofile(
       {
-        "profile_picture": pic,
+        "profile_picture": Profileimage!.path,
         "token": token,
         "user_id": userId.toString(),
         "customer_name": _nameController.text.toString(),
@@ -368,15 +368,15 @@ class _RegisterState extends State<Profileupdate> {
         if (value.status == "success") {
           print(value.status);
           Fluttertoast.showToast(
-              msg: value.message,
+              msg: "Woohoo! Profile successfully updated",
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
               timeInSecForIosWeb: 1,
-              backgroundColor: Colors.black87,
-              textColor: Colors.white,
+              backgroundColor: Colors.white,
+              textColor: Color(primary_text),
               fontSize: sub_title);
-          // Navigator.push(
-          //     context, MaterialPageRoute(builder: (context) => Home(false)));
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Home(false)));
         } else {
           print(value.message);
           Fluttertoast.showToast(
@@ -384,8 +384,8 @@ class _RegisterState extends State<Profileupdate> {
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
               timeInSecForIosWeb: 1,
-              backgroundColor: Colors.black87,
-              textColor: Colors.white,
+              backgroundColor: Colors.white,
+              textColor: Color(primary_text),
               fontSize: sub_title);
         }
       },
@@ -445,7 +445,5 @@ class _RegisterState extends State<Profileupdate> {
     setState(() {
       this.Profileimage = imageTemporary;
     });
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    sharedPreferences.setString("profilephoto", imageTemporary.path.toString());
   }
 }

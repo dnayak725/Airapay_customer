@@ -156,7 +156,6 @@ class _PasswordState extends State<Password> {
                                       listen: false)
                                   .fetchData(loginParams);
 
-                             
                               if (Provider.of<LoginProvider>(context,
                                           listen: false)
                                       .loginDetails
@@ -186,8 +185,8 @@ class _PasswordState extends State<Password> {
                                     toastLength: Toast.LENGTH_SHORT,
                                     gravity: ToastGravity.BOTTOM,
                                     timeInSecForIosWeb: 1,
-                                    backgroundColor: Colors.black87,
-                                    textColor: Colors.white,
+                                    backgroundColor: Colors.white,
+                                    textColor: Color(primary_text),
                                     fontSize: sub_title);
                                 //redirect to home page
                                 Navigator.push(
@@ -203,8 +202,8 @@ class _PasswordState extends State<Password> {
                                     toastLength: Toast.LENGTH_SHORT,
                                     gravity: ToastGravity.BOTTOM,
                                     timeInSecForIosWeb: 1,
-                                    backgroundColor: Colors.black87,
-                                    textColor: Colors.white,
+                                    backgroundColor: Colors.white,
+                                    textColor: Color(primary_text),
                                     fontSize: sub_title);
                               }
                             }
