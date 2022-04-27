@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:aira_pay/Auth/Providers/CustomerDetailsProvider.dart';
 import 'package:aira_pay/Shop/Providers/NotificationProvider.dart';
 import 'package:aira_pay/Shop/Providers/PushNotificationProvider.dart';
 import 'package:aira_pay/Shop/Screens/home.dart';
@@ -60,7 +61,7 @@ class _NotificationSceenState extends State<NotificationSceen> {
               ),
             ),
             title: Text(
-              'Notifications',
+              'Notification',
               style: TextStyle(
                   color: Color(primary_text),
                   fontSize: app_tittle,
@@ -164,7 +165,8 @@ class _NotificationSceenState extends State<NotificationSceen> {
                                               alignment: Alignment.centerRight,
                                               child: Text(
                                                 notificationData
-                                                    .notificationData[i].createdAt
+                                                    .notificationData[i]
+                                                    .createdAt
                                                     .toString(),
                                                 style: TextStyle(
                                                     fontSize: small_text,
@@ -195,6 +197,7 @@ class _NotificationSceenState extends State<NotificationSceen> {
     // TODO: implement initState
     super.initState();
     _getmobilenumber();
+
     _modalBottomSheetMenu();
   }
 
@@ -209,6 +212,7 @@ class _NotificationSceenState extends State<NotificationSceen> {
     var tokenparam = {"token": Token, "user_id": userId};
     await Provider.of<NotificationProvider>(context, listen: false)
         .Notificationfetch(tokenparam);
+
     print("john");
     print(Provider.of<NotificationProvider>(context, listen: false)
         .notificationData[0]
@@ -221,7 +225,6 @@ class _NotificationSceenState extends State<NotificationSceen> {
           context: context,
           builder: (builder) {
             return Container(
-              height: 240,
                 padding:
                     EdgeInsets.only(top: 30, left: 20, right: 20, bottom: 10),
                 child: Column(
@@ -278,13 +281,13 @@ class _NotificationSceenState extends State<NotificationSceen> {
                               toastLength: Toast.LENGTH_SHORT,
                               gravity: ToastGravity.BOTTOM,
                               timeInSecForIosWeb: 1,
-                              backgroundColor: Colors.white,
-              textColor: Color(primary_text),
+                              backgroundColor: Color(white_color),
+                              textColor: Color(primary_text),
                               fontSize: sub_title);
                           Navigator.pop(context);
                         },
                         child: Text(
-                          "Enable Push Notifications",
+                          "Enable Notification",
                           style: TextStyle(fontSize: button_text),
                         ),
                       ),

@@ -15,9 +15,10 @@ import 'package:aira_pay/config.dart';
 import 'package:aira_pay/config/project_config.dart';
 import 'package:flutter/material.dart';
 import 'package:heroicons/heroicons.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'dart:convert';
 import '../Providers/SpendingLimitProvider.dart';
 
 class Home extends StatefulWidget {
@@ -30,6 +31,7 @@ class Home extends StatefulWidget {
 final controller = ScrollController();
 var customerName;
 var profilePhoto;
+var time;
 var spendingLimitCheck = false;
 
 class _HomeState extends State<Home> {
@@ -65,10 +67,14 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
+    DateTime now = DateTime.now();
+    String formattedDate = DateFormat('kk').format(now);
+
     // TODO: implement initState
     super.initState();
     setState(() {
       spendingLimitCheck = widget.spendingcheck;
+      time = int.parse(formattedDate);
     });
     print(spendingLimitCheck);
     _syncLogin();
@@ -117,15 +123,23 @@ class _HomeState extends State<Home> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.only(top: 15),
-                      child: Text(
-                        "Good Morning",
-                        style: TextStyle(
-                            fontSize: sub_title,
-                            fontWeight: FontWeight.w600,
-                            color: Color(fusica_text)),
-                      ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 20),
+                      child: time < 12
+                          ? Text(
+                              "Good morning",
+                              style: TextStyle(
+                                  fontSize: sub_title,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(fusica_text)),
+                            )
+                          : Text(
+                              "Good Evening",
+                              style: TextStyle(
+                                  fontSize: sub_title,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(fusica_text)),
+                            ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 10),

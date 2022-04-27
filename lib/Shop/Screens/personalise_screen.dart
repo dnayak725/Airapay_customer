@@ -96,6 +96,7 @@ class _RegisterState extends State<PersonaliseScreen> {
                                 .toString());
                           }
                         });
+                     
                       },
                       child: Container(
                           decoration: BoxDecoration(
@@ -171,7 +172,6 @@ class _RegisterState extends State<PersonaliseScreen> {
                   style: ElevatedButton.styleFrom(
                       primary: Color(primary_color),
                       elevation: 2,
-                      shadowColor: Color(fusica_text).withOpacity(0.2),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(35),
                       )),
@@ -192,12 +192,12 @@ class _RegisterState extends State<PersonaliseScreen> {
                             .status ==
                         "success") {
                       Fluttertoast.showToast(
-                          msg: "Woohoo! Your selections have been saved.",
+                          msg: "Successfully Choose the Category",
                           toastLength: Toast.LENGTH_SHORT,
                           gravity: ToastGravity.BOTTOM,
                           timeInSecForIosWeb: 1,
-                          backgroundColor: Colors.white,
-                          textColor: Color(primary_text),
+                          backgroundColor: Colors.black87,
+                          textColor: Color(white_color),
                           fontSize: sub_title);
                       Navigator.pop(context);
                     } else {
@@ -206,8 +206,8 @@ class _RegisterState extends State<PersonaliseScreen> {
                           toastLength: Toast.LENGTH_SHORT,
                           gravity: ToastGravity.BOTTOM,
                           timeInSecForIosWeb: 1,
-                          backgroundColor: Colors.white,
-                          textColor: Color(primary_text),
+                          backgroundColor: Colors.black87,
+                          textColor: Color(white_color),
                           fontSize: sub_title);
                     }
                   },

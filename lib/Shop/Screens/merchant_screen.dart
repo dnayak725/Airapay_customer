@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:aira_pay/Shop/Providers/MerchantDetailsProvider.dart';
+import 'package:aira_pay/Shop/Screens/Inappbrowser.dart';
 import 'package:aira_pay/config.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:heroicons/heroicons.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -28,6 +28,7 @@ class _MerchantState extends State<Merchant> {
   var Token;
   List<String> selectedReportList = [];
   List CategoryList = ["In-Store", "Online", "Voucher"];
+
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
@@ -69,6 +70,19 @@ class _MerchantState extends State<Merchant> {
                               ),
                             ),
                           ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 26),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(10),
+                                    topRight: Radius.circular(10)),
+                              ),
+                              height: 10,
+                              width: double.infinity,
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -80,7 +94,8 @@ class _MerchantState extends State<Merchant> {
                                 leading: CircleAvatar(
                                   radius: 30.0,
                                   backgroundImage: NetworkImage(
-                                    "https://helobnv2.quocent.com/frontend/images/user-37.jpg",
+                                    merchantDetailsdata
+                                        .merchantDetailsData[0].logo,
                                   ),
                                   backgroundColor: Color(tag_grey_bg),
                                 ),
@@ -164,30 +179,6 @@ class _MerchantState extends State<Merchant> {
                                                 context,
                                                 listen: false)
                                             .FavouriteMerchantfetch(paramdata);
-                                        if (Provider.of<FavoriteMerchantProvider>(
-                                                    context,
-                                                    listen: false)
-                                                .status ==
-                                            "success") {
-                                          Fluttertoast.showToast(
-                                              msg:
-                                                  "You are following this merchant",
-                                              toastLength: Toast.LENGTH_SHORT,
-                                              gravity: ToastGravity.BOTTOM,
-                                              timeInSecForIosWeb: 1,
-                                              backgroundColor: Colors.black87,
-                                              textColor: Color(white_color),
-                                              fontSize: sub_title);
-                                        } else {
-                                          Fluttertoast.showToast(
-                                              msg: "Something went wrong",
-                                              toastLength: Toast.LENGTH_SHORT,
-                                              gravity: ToastGravity.BOTTOM,
-                                              timeInSecForIosWeb: 1,
-                                              backgroundColor: Colors.black87,
-                                              textColor: Color(white_color),
-                                              fontSize: sub_title);
-                                        }
                                       }
                                     });
 
@@ -245,15 +236,12 @@ class _MerchantState extends State<Merchant> {
                                   padding: EdgeInsets.only(
                                       left: 10, right: 10, bottom: 10, top: 0),
                                   child: ListView.builder(
-                                      padding: EdgeInsets.only(top: 0),
                                       itemCount: merchantDetailsdata
                                           .getmerchantAdress.length,
                                       itemBuilder: (ctnx, i) {
                                         return Card(
                                           margin: EdgeInsets.only(
-                                            bottom: 10,
-                                            top: 10,
-                                          ),
+                                              bottom: 5, top: 0),
                                           elevation: 2.5,
                                           shadowColor:
                                               Colors.black.withOpacity(0.3),
@@ -307,47 +295,65 @@ class _MerchantState extends State<Merchant> {
                                 ),
                                 Container(
                                   padding: EdgeInsets.only(left: 20, right: 20),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Image.asset(
-                                          'assets/images/merchant-online.png',
-                                          fit: BoxFit.cover),
-                                      SizedBox(
-                                        height: spacing_small,
-                                      ),
-                                      Text(
-                                        'Proceed to the merchants online website to explore products.',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: sub_title,
-                                            fontWeight: FontWeight.w600,
-                                            color: Color(regular_text)),
-                                      ),
-                                      SizedBox(
-                                        height: spacing_small,
-                                      ),
-                                      SizedBox(
-                                        height: button_height,
-                                        width: double.infinity,
-                                        child: ElevatedButton(
-                                          style: ElevatedButton.styleFrom(
-                                              primary: Color(primary_color),
-                                              elevation: 2,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(35),
-                                              )),
-                                          onPressed: () {},
-                                          child: Text(
-                                            "Take Me There",
-                                            style: TextStyle(
-                                                fontSize: button_text),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                  child: merchantDetailsdata
+                                          .merchantDetailsData[0]
+                                          .onlineUrl
+                                          .isNotEmpty
+                                      ? Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Image.asset(
+                                                'assets/images/merchant-online.png',
+                                                fit: BoxFit.cover),
+                                            SizedBox(
+                                              height: spacing_small,
+                                            ),
+                                            Text(
+                                              'Proceed to the merchants online website to explore products.',
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  fontSize: sub_title,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Color(regular_text)),
+                                            ),
+                                            SizedBox(
+                                              height: spacing_small,
+                                            ),
+                                            SizedBox(
+                                              height: button_height,
+                                              width: double.infinity,
+                                              child: ElevatedButton(
+                                                style: ElevatedButton.styleFrom(
+                                                    primary:
+                                                        Color(primary_color),
+                                                    elevation: 2,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              35),
+                                                    )),
+                                                onPressed: () {
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            InAppBrowser( merchantDetailsdata
+                                          .merchantDetailsData[0]
+                                          .onlineUrl)),
+                                                  );
+                                                },
+                                                child: Text(
+                                                  "Take Me There",
+                                                  style: TextStyle(
+                                                      fontSize: button_text),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        )
+                                      : Container(),
                                 ),
                                 Container(
                                   padding: EdgeInsets.symmetric(
@@ -445,23 +451,24 @@ class _MerchantState extends State<Merchant> {
                                                                   ],
                                                                 ),
                                                               ),
-                                                              Text(
-                                                                'No minimum spend.',
-                                                                style: TextStyle(
-                                                                    height: 1.2,
-                                                                    color: Color(
-                                                                        regular_text),
-                                                                    fontSize:
-                                                                        small_text),
-                                                              ),
-                                                              Text(
-                                                                'Valid until 30 Mar 2022',
-                                                                style: TextStyle(
-                                                                    height: 1.2,
-                                                                    color: Color(
-                                                                        regular_text),
-                                                                    fontSize:
-                                                                        small_text),
+                                                              Container(
+                                                                width: 150,
+                                                                child: Text(
+                                                                  merchantDetailsdata
+                                                                      .getcashback[
+                                                                          i]
+                                                                      .description,
+                                                                  style: TextStyle(
+                                                                      height:
+                                                                          1.1,
+                                                                      color: Color(
+                                                                          regular_text),
+                                                                      fontSize:
+                                                                          10,
+                                                                      overflow:
+                                                                          TextOverflow
+                                                                              .clip),
+                                                                ),
                                                               ),
                                                               Text(
                                                                 'T&C',
@@ -480,43 +487,21 @@ class _MerchantState extends State<Merchant> {
                                                           ),
                                                         ],
                                                       ),
-                                                      GestureDetector(
-                                                        onTap: () {
-                                                          Fluttertoast.showToast(
-                                                              msg:
-                                                                  "Woohoo! New voucher successfully claimed.",
-                                                              toastLength: Toast
-                                                                  .LENGTH_SHORT,
-                                                              gravity:
-                                                                  ToastGravity
-                                                                      .BOTTOM,
-                                                              timeInSecForIosWeb:
-                                                                  1,
-                                                              backgroundColor:
-                                                                  Colors.white,
-                                                              textColor: Color(
-                                                                  primary_text),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .only(
+                                                                right: 10),
+                                                        child: Text(
+                                                          'Claim',
+                                                          style: TextStyle(
                                                               fontSize:
-                                                                  sub_title);
-                                                          Navigator.pop(
-                                                              context);
-                                                        },
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .only(
-                                                                  right: 10),
-                                                          child: Text(
-                                                            'Claim',
-                                                            style: TextStyle(
-                                                                fontSize:
-                                                                    sub_title,
-                                                                color: Color(
-                                                                    primary_color),
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w700),
-                                                          ),
+                                                                  sub_title,
+                                                              color: Color(
+                                                                  primary_color),
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700),
                                                         ),
                                                       )
                                                     ],

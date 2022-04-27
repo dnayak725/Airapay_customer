@@ -505,7 +505,7 @@ class _RegisterState extends State<Completeregister> {
 
   completeRegister() {
     final service = CompleteRegisterApiService();
-
+    print("heloo from register");
     service.completeregister(
       {
         "mobile_app_key": "d3VbpseZ12KMXSZkI6JalJ7sS6ytrXYu",
@@ -525,8 +525,8 @@ class _RegisterState extends State<Completeregister> {
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
               timeInSecForIosWeb: 1,
-              backgroundColor: Colors.white,
-              textColor: Color(primary_text),
+              backgroundColor: Colors.black87,
+              textColor: Colors.white,
               fontSize: sub_title);
           SharedPreferences sharedPreferences =
               await SharedPreferences.getInstance();
@@ -538,8 +538,8 @@ class _RegisterState extends State<Completeregister> {
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
               timeInSecForIosWeb: 1,
-              backgroundColor: Colors.white,
-              textColor: Color(primary_text),
+              backgroundColor: Colors.black87,
+              textColor: Colors.white,
               fontSize: sub_title);
           print(value.message);
         }

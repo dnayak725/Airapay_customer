@@ -73,7 +73,6 @@ class _RegisterState extends State<Securitysetting> {
                   },
                   child: Card(
                     elevation: 1,
-                    shadowColor: Color(fusica_text).withOpacity(0.2),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
@@ -137,7 +136,6 @@ class _RegisterState extends State<Securitysetting> {
                   },
                   child: Card(
                     elevation: 1,
-                    shadowColor: Color(fusica_text).withOpacity(0.2),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
@@ -186,7 +184,6 @@ class _RegisterState extends State<Securitysetting> {
                   onTap: () {},
                   child: Card(
                     elevation: 1,
-                    shadowColor: Color(fusica_text).withOpacity(0.2),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),

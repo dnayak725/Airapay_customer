@@ -17,11 +17,9 @@ class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
-      
       child: Card(
         elevation: 2.5,
-                                    shadowColor: Colors.black.withOpacity(0.3),
+        shadowColor: Colors.black.withOpacity(0.3),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(40),
         ),
@@ -33,11 +31,11 @@ class _SearchState extends State<Search> {
           child: Container(
             height: 52,
             child: Padding(
-              padding: const EdgeInsets.only(left: 10, right: 20,),
+              padding: const EdgeInsets.only(left: 10, right: 20),
               child: Row(
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.only(right: 10, left: 10,),
+                    padding: const EdgeInsets.only(right: 10, left: 10),
                     child: Stack(
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
@@ -55,7 +53,7 @@ class _SearchState extends State<Search> {
                   ),
                   Expanded(
                     child: Text(
-                      "Search for shops",
+                      "Search for shop",
                       style: TextStyle(color: Color(label_grey)),
                     ),
                   ),

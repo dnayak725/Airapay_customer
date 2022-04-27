@@ -43,8 +43,8 @@ class _VerifyMobileState extends State<VerifyMobile> {
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
               timeInSecForIosWeb: 1,
-              backgroundColor: Colors.white,
-              textColor: Color(primary_text),
+              backgroundColor: Colors.black87,
+              textColor: Colors.white,
               fontSize: sub_title);
           // print(value.status);
           Navigator.push(context,
@@ -55,8 +55,8 @@ class _VerifyMobileState extends State<VerifyMobile> {
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
               timeInSecForIosWeb: 1,
-              backgroundColor: Colors.white,
-              textColor: Color(primary_text),
+              backgroundColor: Colors.black87,
+              textColor: Colors.white,
               fontSize: sub_title);
           print(value.status);
         }

@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:aira_pay/Auth/Providers/CustomerDetailsProvider.dart';
 import 'package:aira_pay/Shop/Providers/ExploreProvider.dart';
 import 'package:aira_pay/Shop/Providers/FavouriteMerchantProvider.dart';
 import 'package:aira_pay/Shop/Providers/personaliseCategoryProvider.dart';
@@ -32,7 +33,7 @@ class _PersonaliseState extends State<Personalise> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.only(left: 10,right: 10,top:10),
           child: Container(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,8 +96,9 @@ class _PersonaliseState extends State<Personalise> {
             ),
           ),
         ),
-        Container(
-          margin: const EdgeInsets.only(top: 5, left: 5, right: 5),
+     Provider.of<CustomerDetailsProvider>(context, listen: false)
+        .getIntrestCategory.length ==0 ?   Container(
+          margin: const EdgeInsets.only(top: 15, left: 5, right: 5),
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: Color(grey_bg_deep),
@@ -178,7 +180,7 @@ class _PersonaliseState extends State<Personalise> {
               ],
             ),
           ),
-        ),
+        ):Container(),
         Consumer<ExploreProvider>(builder: (context, exploreData, child) {
           return exploreData.ExploreMerchants.length != 0
               ? Container(
@@ -186,12 +188,13 @@ class _PersonaliseState extends State<Personalise> {
                     vertical: 0.0,
                   ),
                   child: ListView.builder(
+                    padding: EdgeInsets.only(top: 10,bottom: 80,left: 2,right: 2),
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: exploreData.ExploreMerchants.length,
                       itemBuilder: (ctnx, i) {
                         return Padding(
-                          padding: const EdgeInsets.only(top: 10),
+                          padding: const EdgeInsets.only(top: 0),
                           child: Card(
                              elevation: 2.5,
                                     shadowColor: Colors.black.withOpacity(0.3),
@@ -506,7 +509,7 @@ class _PersonaliseState extends State<Personalise> {
                                                                 .categoryDetailsname,
                                                             style: TextStyle(
                                                                 color: Color(
-                                                                    grey_bg_deep_text),
+                                                                    primary_color),
                                                                 fontSize:
                                                                     tag_text),
                                                           ),

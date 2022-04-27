@@ -1,4 +1,3 @@
-
 class MerchantSearch {
   MerchantSearch({
     required this.id,
@@ -19,26 +18,34 @@ class MerchantSearch {
     required this.apikey,
     required this.instore,
     required this.onlineUrl,
- 
+    required this.getCategory,
   });
-  late  int id;
-  late  String name;
-  late  int userId;
-  late  String ipay_88Id;
-  late  int isActive;
-  late  String logo;
-  late  String banner;
-  late  String code;
-  late  String callbackUrl;
-  late  String redirectUrl;
-  late  int merchantRateId;
-  late  int merchantRateId_2;
-  late  int merchantRateId_3;
-  late  int parentId;
-  late  int merchantRateId_6;
-  late  String apikey;
-  late  String instore;
-  late  String onlineUrl;
- 
-  
+   int id;
+   String name;
+   int userId;
+   String ipay_88Id;
+   int isActive;
+   String logo;
+   String banner;
+   String code;
+   String callbackUrl;
+   String redirectUrl;
+   int merchantRateId;
+   int merchantRateId_2;
+   int merchantRateId_3;
+   int parentId;
+   int merchantRateId_6;
+   String apikey;
+   String instore;
+   String onlineUrl;
+   List<GetSearchCategory> getCategory;
+}
+
+class GetSearchCategory {
+  GetSearchCategory({
+    required this.id,
+    required this.categoryDetailsname,
+  });
+   int id;
+   String categoryDetailsname;
 }

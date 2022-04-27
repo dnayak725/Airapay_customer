@@ -67,7 +67,7 @@ class _RegisterState extends State<Spendinglimit> {
                     Row(
                       children: [
                         CircleAvatar(
-                          radius: 10,
+                          radius: 11,
                           backgroundColor: Color(icon_gery),
                           child: CircleAvatar(
                               radius: 8,
@@ -135,7 +135,7 @@ class _RegisterState extends State<Spendinglimit> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CircleAvatar(
-                          radius: 15,
+                          radius: 16,
                           backgroundColor: Color(tag_grey_bg),
                           child: CircleAvatar(
                               radius: 13,
@@ -148,7 +148,7 @@ class _RegisterState extends State<Spendinglimit> {
                               )),
                         ),
                         CircleAvatar(
-                          radius: 15,
+                          radius: 16,
                           backgroundColor: Color(icon_gery),
                           child: CircleAvatar(
                               radius: 13,
@@ -161,7 +161,7 @@ class _RegisterState extends State<Spendinglimit> {
                               )),
                         ),
                         CircleAvatar(
-                          radius: 15,
+                          radius: 16,
                           backgroundColor: Color(gold_color_bg_2),
                           child: CircleAvatar(
                               radius: 13,

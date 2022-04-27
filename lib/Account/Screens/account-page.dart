@@ -133,13 +133,12 @@ class _RegisterState extends State<Account> {
                           height: 1),
                     ),
                   ),
-                  SizedBox(height: 5,),
                   Row(
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
                         child: Text(
-                          '+ ${Provider.of<CustomerDetailsProvider>(context, listen: false)
+                          '+60${Provider.of<CustomerDetailsProvider>(context, listen: false)
                               .userDetails
                               .phoneNumber}',
                           style: TextStyle(
@@ -375,7 +374,7 @@ class _RegisterState extends State<Account> {
                                     fontWeight: FontWeight.w600),
                               ),
                               Text(
-                                '15',
+                                Provider.of<CustomerDetailsProvider>(context, listen: false).getFavMerchant.length.toString(),
                                 style: TextStyle(
                                     fontSize: small_text,
                                     color: Color(primary_color),

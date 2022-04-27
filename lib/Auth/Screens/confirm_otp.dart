@@ -190,8 +190,8 @@ class _ConfirmOtpState extends State<ConfirmOtp> {
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
               timeInSecForIosWeb: 1,
-              backgroundColor: Colors.white,
-              textColor: Color(primary_text),
+              backgroundColor: Colors.black87,
+              textColor: Colors.white,
               fontSize: sub_title);
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => Createpassword()));
@@ -201,8 +201,8 @@ class _ConfirmOtpState extends State<ConfirmOtp> {
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
               timeInSecForIosWeb: 1,
-              backgroundColor: Colors.white,
-              textColor: Color(primary_text),
+              backgroundColor: Colors.black87,
+              textColor: Colors.white,
               fontSize: sub_title);
           print(value.status);
         }

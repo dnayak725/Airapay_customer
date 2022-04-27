@@ -156,9 +156,9 @@ class CompleteRegisterApiService {
     final response = await http.post(Uri.parse(url), body: param);
 
     final data = jsonDecode(response.body);
-    print(response.statusCode);
+    print(response.body);
     if (response.statusCode == 200) {
-        print(response.body);
+       
       return CompleteRegisterModel.fromJson(data);
     } else {
       return CompleteRegisterModel.fromError(data);

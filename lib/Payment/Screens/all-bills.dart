@@ -141,7 +141,6 @@ class _RegisterState extends State<Allbills> {
                                                     ),
                                                   )),
                                               Card(
-                                                shadowColor: Color(fusica_text).withOpacity(0.2),
                                                 child: ListTile(
                                                     leading: Container(
                                                       height: 40,

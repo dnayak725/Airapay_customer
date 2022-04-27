@@ -5,7 +5,6 @@ import 'package:aira_pay/Payment/Screens/confirm-payment.dart';
 import 'package:aira_pay/config.dart';
 import 'package:flutter/material.dart';
 import 'package:heroicons/heroicons.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class Cardlist extends StatefulWidget {
   Cardlist({Key? key}) : super(key: key);
@@ -106,7 +105,6 @@ class _RegisterState extends State<Cardlist> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    shadowColor: Color(fusica_text).withOpacity(0.2),
                     color: Colors.white,
                     child: Padding(
                       padding: EdgeInsets.all(10),
@@ -167,101 +165,81 @@ class _RegisterState extends State<Cardlist> {
                       builder: (context) => Container(
                           padding:
                               EdgeInsets.only(top: 40, left: 20, right: 20),
-                          child: Container(
-                            height: 200,
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                  height: button_height,
-                                  width: double.infinity,
-                                  child: ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        // ignore: prefer_const_constructors
-                                        primary: Colors.white,
-                                        side: BorderSide(
-                                          width: 2.0,
-                                          color: Color(border_color_black),
-                                        ),
-                                        elevation: 2,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(35),
-                                        ),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: button_height,
+                                width: double.infinity,
+                                child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      // ignore: prefer_const_constructors
+                                      primary: Colors.white,
+                                      side: BorderSide(
+                                        width: 2.0,
+                                        color: Color(border_color_black),
                                       ),
-                                      onPressed: () {
-                                        // Navigator.push(context,
-                                        //     MaterialPageRoute(builder: (context) => Password()));
-
-                                        Fluttertoast.showToast(
-                                            msg:
-                                                "Woohoo! Your primary card selection has been saved.",
-                                            toastLength: Toast.LENGTH_SHORT,
-                                            gravity: ToastGravity.BOTTOM,
-                                            timeInSecForIosWeb: 1,
-                                            backgroundColor: Colors.white,
-                                            textColor: Color(primary_text),
-                                            fontSize: sub_title);
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text(
-                                        "Set as Primary",
-                                        style: TextStyle(
-                                            fontSize: button_text,
-                                            fontWeight: FontWeight.w700,
-                                            color: Color(primary_text)),
-                                      )),
-                                ),
-                                SizedBox(
-                                  height: spacing_small,
-                                ),
-                                SizedBox(
-                                  height: button_height,
-                                  width: double.infinity,
-                                  child: ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        // ignore: prefer_const_constructors
-                                        primary: Colors.white,
-                                        side: BorderSide(
-                                          width: 2.0,
-                                          color: Color(week),
-                                        ),
-                                        elevation: 2,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(35),
-                                        ),
+                                      elevation: 2,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(35),
                                       ),
-                                      onPressed: () {
-                                        // Navigator.push(context,
-                                        //     MaterialPageRoute(builder: (context) => Password()));
-                                      },
-                                      child: Text(
-                                        "Remove Card",
-                                        style: TextStyle(
-                                            fontSize: button_text,
-                                            fontWeight: FontWeight.w700,
-                                            color: Color(week)),
-                                      )),
-                                ),
-                                GestureDetector(
-                                  onTap: () => Navigator.pop(context),
-                                  child: Container(
-                                      margin: EdgeInsets.only(top: 20),
-                                      child: HeroIcon(
-                                        HeroIcons.xCircle,
-                                        color: Color(text_grey),
-                                        size: 50,
-                                      )),
-                                )
-                              ],
-                            ),
+                                    ),
+                                    onPressed: () {
+                                      // Navigator.push(context,
+                                      //     MaterialPageRoute(builder: (context) => Password()));
+                                    },
+                                    child: Text(
+                                      "Set as Primary",
+                                      style: TextStyle(
+                                          fontSize: button_text,
+                                          fontWeight: FontWeight.w700,
+                                          color: Color(primary_text)),
+                                    )),
+                              ),
+                              SizedBox(
+                                height: spacing_small,
+                              ),
+                              SizedBox(
+                                height: button_height,
+                                width: double.infinity,
+                                child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      // ignore: prefer_const_constructors
+                                      primary: Colors.white,
+                                      side: BorderSide(
+                                        width: 2.0,
+                                        color: Color(week),
+                                      ),
+                                      elevation: 2,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(35),
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      // Navigator.push(context,
+                                      //     MaterialPageRoute(builder: (context) => Password()));
+                                    },
+                                    child: Text(
+                                      "Remove Card",
+                                      style: TextStyle(
+                                          fontSize: button_text,
+                                          fontWeight: FontWeight.w700,
+                                          color: Color(week)),
+                                    )),
+                              ),
+                              Container(
+                                  margin: EdgeInsets.only(top: 20),
+                                  child: HeroIcon(
+                                    HeroIcons.xCircle,
+                                    color: Color(text_grey),
+                                    size: 50,
+                                  ))
+                            ],
                           )));
                 },
                 child: Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                   ),
-                  shadowColor: Color(fusica_text).withOpacity(0.2),
                   color: Colors.white,
                   elevation: 10,
                   child: Padding(

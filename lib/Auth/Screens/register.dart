@@ -43,8 +43,8 @@ class _RegisterState extends State<Register> {
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
               timeInSecForIosWeb: 1,
-              backgroundColor: Colors.white,
-              textColor: Color(primary_text),
+              backgroundColor: Colors.black87,
+              textColor: Colors.white,
               fontSize: sub_title);
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => VerifyMobile()));
@@ -54,8 +54,8 @@ class _RegisterState extends State<Register> {
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.BOTTOM,
               timeInSecForIosWeb: 1,
-              backgroundColor: Colors.white,
-              textColor: Color(primary_text),
+              backgroundColor: Colors.black87,
+              textColor: Colors.white,
               fontSize: sub_title);
           print(value.message);
         }
@@ -163,7 +163,6 @@ class _RegisterState extends State<Register> {
                             style: ElevatedButton.styleFrom(
                               primary: Color(primary_color),
                               elevation: 2,
-                              shadowColor: Color(fusica_text).withOpacity(0.2),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(35),
                               ),
